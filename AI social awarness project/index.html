@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive AI social engineering awareness training project">
+  <title>CyberShield | AI Awareness Training</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="logo" href="#home">🛡️ Cyber<span>Shield</span></a>
+    <div class="nav-links">
+      <a href="#learn">Learn</a>
+      <a href="#simulator">Simulator</a>
+      <a href="#quiz">Quiz</a>
+    </div>
+    <button class="nav-btn" onclick="showTips()">Safety Tips ↗</button>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <span class="tag">✦ AI-POWERED CYBER AWARENESS</span>
+      <h1>Think Smart.<br><span>Stay Cyber Safe.</span></h1>
+      <p>
+        Discover how cybercriminals use AI, fake identities,
+        urgent messages and manipulation to trick people.
+        Learn to identify threats before you click.
+      </p>
+      <div class="hero-buttons">
+        <a class="primary-btn" href="#learn">Start Learning →</a>
+        <a class="secondary-btn" href="#simulator">Try Scam Detector</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>04</strong><small>Learning modules</small></div>
+        <div><strong>05</strong><small>Quiz questions</small></div>
+        <div><strong>100%</strong><small>Interactive demo</small></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="glow"></div>
+      <div class="shield">🛡️</div>
+      <div class="floating-card card-one">🔒 Identity Protected</div>
+      <div class="floating-card card-two">⚡ Threat Awareness</div>
+      <div class="floating-card card-three">🤖 AI Security</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="learn">
+      <div class="section-heading">
+        <span class="tag">KNOW THE THREAT</span>
+        <h2>Understand Social Engineering</h2>
+        <p>Explore the most common tricks used to manipulate people.</p>
+      </div>
+
+      <div class="learning-grid">
+        <article class="learn-card">
+          <div class="card-icon purple">📧</div>
+          <h3>Phishing Attacks</h3>
+          <p>Fake emails and messages designed to steal passwords or personal information.</p>
+          <button class="text-btn" onclick="openLesson('phishing')">Explore lesson →</button>
+        </article>
+
+        <article class="learn-card">
+          <div class="card-icon blue">🤖</div>
+          <h3>AI Voice & Deepfakes</h3>
+          <p>AI-generated voices, images or videos that impersonate trusted people.</p>
+          <button class="text-btn" onclick="openLesson('deepfake')">Explore lesson →</button>
+        </article>
+
+        <article class="learn-card">
+          <div class="card-icon pink">🎭</div>
+          <h3>Impersonation</h3>
+          <p>Scammers pretend to be bank staff, teachers, friends or technical support.</p>
+          <button class="text-btn" onclick="openLesson('impersonation')">Explore lesson →</button>
+        </article>
+
+        <article class="learn-card">
+          <div class="card-icon orange">⏳</div>
+          <h3>Urgency & Fear</h3>
+          <p>Threats, prizes and deadlines pressure people to act without checking.</p>
+          <button class="text-btn" onclick="openLesson('urgency')">Explore lesson →</button>
+        </article>
+      </div>
+      <div id="lesson-output" class="result-panel" hidden aria-live="polite"></div>
+    </section>
+
+    <section class="section simulator-section" id="simulator">
+      <div class="section-heading">
+        <span class="tag">INTERACTIVE LAB</span>
+        <h2>AI Scam Awareness Checker</h2>
+        <p>Examine a sample message and discover its warning signs.</p>
+      </div>
+
+      <div class="simulator">
+        <div class="simulator-info">
+          <span class="mail-icon">✉️</span>
+          <h3>Suspicious Message Lab</h3>
+          <p>Choose a sample message. This educational demo checks for common scam indicators; it does not use a live AI service.</p>
+          <label for="message-choice">Select a scenario</label>
+          <select id="message-choice">
+            <option value="bank">Fake bank alert</option>
+            <option value="prize">Unexpected prize</option>
+            <option value="friend">Urgent friend request</option>
+            <option value="safe">Routine class announcement</option>
+          </select>
+          <button class="primary-btn full-btn" onclick="checkMessage()">🔍 Analyze Message</button>
+        </div>
+
+        <div class="email-window">
+          <div class="email-top"><span>● ● ●</span><span>MESSAGE PREVIEW</span></div>
+          <div class="email-body">
+            <p class="email-label">SAMPLE MESSAGE — TRAINING ONLY</p>
+            <h4 id="email-subject">Account Alert: Immediate Action Required</h4>
+            <p id="email-sender">From: security-alert@example.invalid</p>
+            <hr>
+            <p id="email-message">Your account may be suspended. Verify your details immediately using the link provided.</p>
+            <div class="fake-link">example.invalid/verify (illustrative only)</div>
+            <p class="warning-note">⚠ Never enter real credentials into a training exercise.</p>
+          </div>
+          <div id="analysis-result" class="analysis-result" aria-live="polite">
+            <strong>Ready to analyze?</strong>
+            <p>Select a scenario and press the Analyze Message button.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="habits">
+      <div class="section-heading">
+        <span class="tag">YOUR DEFENSE PLAN</span>
+        <h2>Build Safer Digital Habits</h2>
+        <p>Small actions can prevent major security problems.</p>
+      </div>
+      <div class="habits-grid">
+        <div class="habit"><span>01</span><div><h3>Pause before clicking</h3><p>Don't let urgency make your decision.</p></div></div>
+        <div class="habit"><span>02</span><div><h3>Verify independently</h3><p>Contact the person through a known, trusted channel.</p></div></div>
+        <div class="habit"><span>03</span><div><h3>Protect your accounts</h3><p>Use unique passwords and multifactor authentication.</p></div></div>
+        <div class="habit"><span>04</span><div><h3>Report suspicious activity</h3><p>Inform your institution, bank or platform through official channels.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section quiz-section" id="quiz">
+      <div class="section-heading">
+        <span class="tag">TEST YOUR KNOWLEDGE</span>
+        <h2>Cyber Safety Challenge 🧠</h2>
+        <p>Answer five questions and check your awareness score.</p>
+      </div>
+
+      <div class="quiz-box">
+        <div class="quiz-top">
+          <span id="question-number">Question 1 of 5</span>
+          <span id="live-score">Score: 0</span>
+        </div>
+        <div class="progress-track"><div id="progress-bar"></div></div>
+        <h3 id="question-text">What should you do when an unknown message demands immediate payment?</h3>
+        <div id="answer-options" class="answer-options"></div>
+        <p id="quiz-feedback" aria-live="polite"></p>
+        <button id="next-btn" class="primary-btn full-btn" onclick="nextQuestion()" disabled>Next Question →</button>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="cta-icon">🔐</div>
+      <h2>Think Before You Trust.</h2>
+      <p>Your strongest defense is awareness, verification and a moment to pause.</p>
+      <button class="primary-btn" onclick="showTips()">View Safety Checklist ✓</button>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo" href="#home">🛡️ Cyber<span>Shield</span></a>
+    <p>AI Social Engineering Awareness Training · Student Project</p>
+    <p>For educational purposes only. No real messages or credentials are collected.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
